@@ -104,7 +104,7 @@ function Rename-Copy-Images($sourcePath, $destinationPath) {
                     }
                 }
 
-                Write-Host 'Process Completed. Files Copied and Thumbnails Created.' -ForegroundColor Green
+                Write-Host 'Process Completed. Files Renamed, Copied and Thumbnails Created.' -ForegroundColor Green
             }
         } else {
             Write-Host 'Source folder not found.' -ForegroundColor Yellow
