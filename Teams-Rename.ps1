@@ -13,7 +13,7 @@ function Create-GUI {
     # Create main form
     $form = New-Object System.Windows.Forms.Form
     $form.Text = "Teams Background Name Change"
-    $form.Size = New-Object System.Drawing.Size(400, 170)
+    $form.Size = New-Object System.Drawing.Size(430, 170)
     $form.StartPosition = "CenterScreen"
     $form.FormBorderStyle = "FixedSingle"  # Set the form border style to fixed single
     $form.MinimumSize = $form.Size  # Set the minimum size to prevent resizing
@@ -42,6 +42,31 @@ function Create-GUI {
     $textbox2.Location = New-Object System.Drawing.Point(220, 50)
     $textbox2.Size = New-Object System.Drawing.Size(150, 20)
     $form.Controls.Add($textbox2)
+
+    # Create browse buttons
+    $browseButton1 = New-Object System.Windows.Forms.Button
+    $browseButton1.Location = New-Object System.Drawing.Point(380, 20)
+    $browseButton1.Size = New-Object System.Drawing.Size(20, 20)
+    $browseButton1.Text = "..."
+    $browseButton1.Add_Click({
+        $folderDialog = New-Object System.Windows.Forms.FolderBrowserDialog
+        if ($folderDialog.ShowDialog() -eq "OK") {
+            $textbox1.Text = $folderDialog.SelectedPath
+        }
+    })
+    $form.Controls.Add($browseButton1)
+
+    $browseButton2 = New-Object System.Windows.Forms.Button
+    $browseButton2.Location = New-Object System.Drawing.Point(380, 50)
+    $browseButton2.Size = New-Object System.Drawing.Size(20, 20)
+    $browseButton2.Text = "..."
+    $browseButton2.Add_Click({
+        $folderDialog = New-Object System.Windows.Forms.FolderBrowserDialog
+        if ($folderDialog.ShowDialog() -eq "OK") {
+            $textbox2.Text = $folderDialog.SelectedPath
+        }
+    })
+    $form.Controls.Add($browseButton2)
 
     # Create buttons
     $button1 = New-Object System.Windows.Forms.Button
@@ -106,7 +131,7 @@ function Rename-Copy-Images($sourcePath, $destinationPath) {
                     }
                 }
 
-                Write-Host 'Process Completed. Files Renamed, Copied and Thumbnails Created.' -ForegroundColor Green
+                Write-Host 'Process Completed. Files Copied and Thumbnails Created.' -ForegroundColor Green
             }
         } else {
             Write-Host 'Source folder not found.' -ForegroundColor Yellow
