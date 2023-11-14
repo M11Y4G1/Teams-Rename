@@ -1,7 +1,8 @@
-# Use this to get around the new M$ Teams needing a Premium SKU to have backgrounds for meetings.
+# Use this to get around the new Teams needing a Premium SKU to have backgrounds for meetings.
 # This will Take any image files you have, rename to the new naming convention, create a _thumb file (and resize to the correct dimentions) and move it to your desired location.
 # This can be a server location, if you have the required permission to the share you have selected.
 # New images should be stored here %LOCALAPPDATA%\Packages\MSTeams_8wekyb3d8bbwe\LocalCache\Microsoft\MSTeams\Backgrounds\Uploads
+# You can then deploy using Group Policy.
 # 
 # Import the required .NET assemblies for GUI
 Add-Type -AssemblyName System.Windows.Forms
